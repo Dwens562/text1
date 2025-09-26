@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <!-- 适配移动端 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <title>千库书城</title>
+  <style>
+    /* 基础重置，统一浏览器默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box; 
+    }
+    body {
+      font-family: "微软雅黑", sans-serif; 
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none; 
+      color: inherit;
+    }
+    img {
+      max-width: 100%; 
+      vertical-align: middle; 
+    }
+    /* 头部导航 */
+    .header {
+      width: 100%;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1); 
+    }
+    .nav {
+      width: 1200px; 
+      height: 60px;
+      margin: 0 auto;
+      display: flex; 
+      align-items: center; 
+      justify-content: space-between; 
+    }
+    .nav-logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff9900; 
+    }
+    .nav-list {
+      display: flex; 
+      gap: 20px; 
+    }
+    .nav-list a {
+      font-size: 14px;
+      padding: 5px 0;
+      transition: color 0.3s; 
+    }
+    .nav-list a:hover {
+      color: #ff9900; 
+    }
+
+    /* 轮播图（简化示意，实际可结合JS插件） */
+    .banner {
+      width: 100%;
+      height: 400px;
+      
+      background: url("./images/10.jpeg") center/cover no-repeat; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .banner-text h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.5); 
+    }
+    .banner-text p {
+      font-size: 18px;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+
+    /* 关于我们 */
+    .about {
+      width: 1200px;
+      margin: 60px auto;
+      display: flex; 
+      gap: 40px; 
+      align-items: flex-start; 
+    }
+    .about-text {
+      flex: 1; 
+    }
+    .about-text h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .about-text p {
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+    .about-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff9900;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s; 
+    }
+    .about-btn:hover {
+      background-color: #e68a00; 
+    }
+    .about-img {
+      width: 500px;
+    }
+
+    /* 读书标语 */
+    .slogan {
+      width: 100%;
+      height: 200px;
+      background: url("./images/13.jpg") center/cover no-repeat;
+      display: flex;
+      background-size: cover;
+      height: 500px;
+      flex-direction: column; 
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .slogan h3 {
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px rgba(0,0,0,0.5);
+    }
+    .slogan p {
+      font-size: 16px;
+      text-shadow: 0 0 4px rgba(0,0,0,0.5);
+    }
+
+    /* 书籍分类 */
+    .book-classify {
+      width: 1200px;
+      margin: 60px auto;
+    }
+    .book-classify h3 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .classify-list {
+      display: flex; 
+      gap: 20px; 
+      justify-content: center; 
+    }
+    .classify-item {
+      width: 300px;
+      text-align: center;
+      border: 1px solid #eee;
+      padding: 20px;
+      border-radius: 4px;
+      transition: box-shadow 0.3s; 
+    }
+    .classify-item:hover {
+      box-shadow: 0 0 12px rgba(0,0,0,0.05); 
+    }
+    .classify-item img {
+      cursor: pointer; 
+      margin-bottom: 10px;
+    }
+    .classify-item p {
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+    .classify-item a {
+      font-size: 12px;
+      color: #ff9900;
+    }
+
+    /* 快捷入口 */
+    .shortcut {
+      width: 1200px;
+      margin: 60px auto;
+      display: flex;
+      gap: 40px;
+      justify-content: center; 
+    }
+    .shortcut-item {
+      width: 280px;
+      text-align: center;
+      padding: 20px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+      transition: box-shadow 0.3s;
+    }
+    .shortcut-item:hover {
+      box-shadow: 0 0 12px rgba(0,0,0,0.05);
+    }
+    .shortcut-item i {
+      font-size: 24px;
+      color: #ff9900;
+      margin-bottom: 10px;
+    }
+    .shortcut-item h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .shortcut-item p {
+      font-size: 12px;
+      color: #999;
+    }
+    .shortcut-item a {
+      display: block;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #ff9900;
+    }
+
+    /* 企业资讯 */
+    .news {
+      width: 1200px;
+      margin: 60px auto;
+    }
+    .news h3 {
+      font-size: 24px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .news-list {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+    .news-item {
+      width: 280px;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.8;
+    }
+    .news-more {
+      display: block;
+      width: 120px;
+      margin: 20px auto 0;
+      padding: 10px;
+      text-align: center;
+      background-color: #ff9900;
+      color: #fff;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+    .news-more:hover {
+      background-color: #e68a00;
+    }
+
+    /* 联系我们 */
+    .contact {
+      width: 100%;
+      background-color: #f5f5f5;
+      padding: 60px 0;
+    }
+    .contact-inner {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-inner h3 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .contact-form {
+      width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-form label {
+      display: block;
+      margin: 10px 0 4px;
+      font-size: 14px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    .contact-form textarea {
+      height: 120px;
+      resize: none; 
+    }
+    .contact-form button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      background-color: #ff9900;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .contact-form button:hover {
+      background-color: #e68a00;
+    }
+    .contact-info {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #666;
+      line-height: 2;
+    }
+
+    /* 底部版权 */
+    .footer {
+      width: 100%;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      font-size: 12px;
+    }
+
+    /* 响应式适配（简化处理，可扩展） */
+    @media (max-width: 1200px) {
+      .nav,
+      .about,
+      .book-classify,
+      .shortcut,
+      .news,
+      .contact-inner {
+        width: 90%; 
+      }
+      .about-img {
+        width: 100%; 
+      }
+      .classify-list,
+      .shortcut,
+      .news-list {
+        flex-wrap: wrap; 
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 头部导航 -->
+  <header class="header">
+    <div class="nav">
+      <div class="nav-logo">千库</div>
+      <nav class="nav-list">
+        <a href="#">网站首页</a>
+        <a href="#">关于我们</a>
+        <a href="#">新闻中心</a>
+        <a href="#">产品中心</a>
+        <a href="#">联系我们</a>
+        <a href="#">下载APP</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 轮播图 -->
+  <section class="banner">
+    <div class="banner-text">
+      <h2>学海无涯</h2>
+      <p>你要的教材这里都有</p>
+    </div>
+  </section>
+
+  <!-- 关于我们 -->
+  <section class="about">
+    <div class="about-text">
+      <h3>关于我们</h3>
+      <p>千库网有限公司专注于教育资源分享，打造“便捷找教材、高效学知识”的平台。</p>
+      <p>平台涵盖海量教材、学习资料，支持在线预览、下载，助力用户轻松获取学习内容。</p>
+      <a href="#" class="about-btn">更多>></a>
+    </div>
+    <div class="about-img">
+      <img src="images/12.jpg" alt="关于我们">
+    </div>
+  </section>
+
+  <!-- 读书标语 -->
+  <section class="slogan">
+    <h3>与书为友，夏天读出凉爽</h3>
+    <p>读书让我安静了下来，在这个十分物质而又浮躁的时代，安静下来是一件很不容易的事情。</p>
+  </section>
+
+  <!-- 书籍分类 -->
+  <section class="book-classify">
+    <h3>书籍分类</h3>
+    <div class="classify-list">
+      <div class="classify-item">
+        <img src="images/11.jpg" alt="音乐书籍">
+        <p>音乐书籍</p>
+        <a href="#">更多>></a>
+      </div>
+      <div class="classify-item">
+        <img src="images/11.jpg" alt="UI书籍">
+        <p>UI书籍</p>
+        <a href="#">更多>></a>
+      </div>
+      <div class="classify-item">
+        <img src="images/11.jpg" alt="程序专用">
+        <p>程序专用</p>
+        <a href="#">更多>></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 快捷入口 -->
+  <section class="shortcut">
+    <div class="shortcut-item">
+      <i class="iconfont">📚</i> 
+      <h4>网上阅读</h4>
+      <p>人工智能带你向知识的海洋畅游</p>
+      <a href="#">进入>></a>
+    </div>
+    <div class="shortcut-item">
+      <i class="iconfont">📚</i>
+      <h4>网上阅读</h4>
+      <p>人工智能带你向知识的海洋畅游</p>
+      <a href="#">进入>></a>
+    </div>
+    <div class="shortcut-item">
+      <i class="iconfont">📚</i>
+      <h4>网上阅读</h4>
+      <p>人工智能带你向知识的海洋畅游</p>
+      <a href="#">进入>></a>
+    </div>
+  </section>
+
+  <!-- 企业资讯 -->
+  <section class="news">
+    <h3>企业资讯</h3>
+    <div class="news-list">
+      <div class="news-item">
+        <h4>书用什么颜色的灯才最合适</h4>
+        <p>只要坐姿端正<br>无论什么颜色的灯光对视力影响都不大</p>
+      </div>
+        
+      <div class="news-item">
+        <h4>书用什么颜色的灯才最合适</h4>
+        <p>只要坐姿端正<br>无论什么颜色的灯光对视力影响都不大</p>
+      </div>
+      <div class="news-item">
+        <h4>书用什么颜色的灯才最合适</h4>
+        <p>只要坐姿端正<br>无论什么颜色的灯光对视力影响都不大</p>
+      </div>
+      <div class="news-item">
+        <h4>书用什么颜色的灯才最合适</h4>
+        <p>只要坐姿端正<br>无论什么颜色的灯光对视力影响都不大</p>
+      </div>
+    </div>
+    <a href="#" class="news-more">更多资讯>></a>
+  </section>
+
+  <!-- 联系我们 -->
+  <section class="contact">
+    <div class="contact-inner">
+      <h3>联系我们</h3>
+      <form class="contact-form">
+        <label for="name">姓名：</label>
+        <input type="text" id="name" placeholder="请输入姓名">
+        <label for="email">邮箱：</label>
+        <input type="email" id="email" placeholder="请输入邮箱">
+        <label for="phone">电话：</label>
+        <input type="tel" id="phone" placeholder="请输入电话">
+        <label for="content">内容：</label>
+        <textarea id="content" placeholder="请输入内容"></textarea>
+        <button type="submit">提交</button>
+      </form>
+      <div class="contact-info">
+        千库制作 UI设计 有限公司<br>
+        地址：千库市高新区软件路123号<br>
+        电话：010-12345678<br>
+        邮箱：service@qianku.com
+      </div>

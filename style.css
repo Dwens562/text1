@@ -1,0 +1,193 @@
+header,section,footer {
+    padding:0;
+    margin:0;
+}
+header {
+    background-color: #231C1A;
+    height: 80px;
+    width: 100%;
+    position:fixed;
+}
+h1 {
+    color:white;
+}
+header ul {
+    position: absolute;
+    right: 5vw;
+    top: 0;
+    line-height: 60px;
+}
+h1 {
+    position: absolute;
+    left: 120px;
+    top: 0;
+    line-height: 40px;
+}
+header li {
+    display:inline;
+    margin-right: 4vw;
+}
+header a {
+    color:white;
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
+.news {
+    background-color: antiquewhite;
+    color: white;
+    height: 75vh;
+    background-image: url("images/7.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.news h2{
+    font-size:60px;
+}
+.news p{
+    color:#FEF7E6;
+    font-size:18px;
+    margin: 80px 0;
+}
+.news a{
+    color:white;
+    text-decoration: none;
+    border:1px solid #ACACAC;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.beijing{
+    background-color: black;
+    height: 150px;
+    
+}
+.wellcome{
+    display: flex;
+}
+.wellcome img{
+    width: 50%;
+}
+.info{
+    width: 50%;
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.info p{
+    color: white;
+}
+.info h2{
+    color: white;
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+.info a{
+    color:white;
+    text-decoration: none;
+    border:1px solid #cccccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.jieshao{
+    display: flex;
+    background-color: #3a3a3a;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 180px 80px;
+}
+.jieshao div{
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+.jieshao img{
+    width: 100%;
+    border-radius: 10px;
+}
+.lishi{
+    display: flex;
+    background-color: #2d2d2d;
+}
+.li1{
+    color: #FEF7E6;
+    width: 50%;
+    padding: 50px 100px 40px;
+}
+.li2{
+    color: #FEF7E6;
+    width: 50%;
+    padding: 50px 100px 40px;
+}
+.beijing2{
+    background-color: black;
+    height: 150px;
+    
+}
+.next{
+    display: flex;
+}
+.next img{
+    width: 50%;
+}
+.what{
+    width: 25%;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.comes{
+    width: 25%;
+    color: white;
+    font-size: 12px;
+    background-color: rgb(27, 27, 27);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.comes a{
+    color:white;
+    text-decoration: none;
+    border:1px solid #cccccc;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+.zongjie{
+    display: flex;
+}
+.zongjie img{
+    width: 66.66%;
+   
+    border-radius: 10px;
+}
+.zong{
+    width: 33.34%;
+    background-color: rgb(27, 27, 27);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    background-color: #000000;
+    color: #B7B7B7;
+    height:60px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+
+}
